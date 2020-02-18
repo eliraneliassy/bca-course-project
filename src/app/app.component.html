@@ -1,5 +1,11 @@
-<div class="item">
-  <div class="description">{{item.description}}</div>
-  <div class="price">{{item.price}}</div>
-  <img [src]="item.imageUrl">
+<div class="cart">
+  <h2>Shopping Cart:</h2>
+</div>
+<div class="container">
+  <div class="item" *ngFor="let item of items">
+    <div class="description">{{item.description}}</div>
+    <div class="price">{{item.price}}</div>
+    <img [src]="item.imageUrl">
+    <button (click)="addToCart(item)">Add To Cart</button>
+  </div>
 </div>

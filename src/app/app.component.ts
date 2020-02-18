@@ -9,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  item: Item = db[0];
+  items: Item[] = db;
+
+  cart: Item[] = [];
+
+  addToCart(item: Item): void {
+    this.cart.push(item);
+    console.log(this.cart);
+  }
 
 }
