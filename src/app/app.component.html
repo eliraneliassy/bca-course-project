@@ -1,23 +1,13 @@
 <div class="cart">
   <h2>Shopping Cart:</h2>
-  <div class="item" *ngFor="let item of cart">
-    <div class="description">{{item.description}}</div>
-    <div class="price">{{item.price}}</div>
-    <img [src]="item.imageUrl">
-    <button (click)="addToCart(item)" *ngIf="existInCart(item); else elseBlock">Add To Cart</button>
-    <ng-template #elseBlock>
-      <button (click)="removeFromCart(item)">Remove From Cart</button>
-    </ng-template>
-  </div>
+  <app-item *ngFor="let item of cart" [item]="item"
+  (removeFromCart)="removeFromCart($event)"
+  [existInCart]="true"></app-item>
 </div>
+
 <div class="container">
-  <div class="item" *ngFor="let item of items">
-    <div class="description">{{item.description}}</div>
-    <div class="price">{{item.price}}</div>
-    <img [src]="item.imageUrl">
-    <button (click)="addToCart(item)" *ngIf="existInCart(item); else elseBlock">Add To Cart</button>
-    <ng-template #elseBlock>
-      <button (click)="removeFromCart(item)">Remove From Cart</button>
-    </ng-template>
-  </div>
+  <app-item *ngFor="let item of items" [item]="item"
+  (addToCart)="addToCart($event)" 
+  (removeFromCart)="removeFromCart($event)"
+  [existInCart]="existInCart(item)"></app-item>
 </div>

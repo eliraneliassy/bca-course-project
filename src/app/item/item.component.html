@@ -1,1 +1,10 @@
-<p>item works!</p>
+<div class="item">
+    <div class="description">{{item.description}}</div>
+    <div class="price">{{item.price}}</div>
+    <img [src]="item.imageUrl">
+    <button (click)="addToCartClicked(item)" 
+    *ngIf="!existInCart; else elseBlock">Add To Cart</button>
+    <ng-template #elseBlock>
+      <button (click)="removeFromCartClicked(item)">Remove From Cart</button>
+    </ng-template>
+  </div>

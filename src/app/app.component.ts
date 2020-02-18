@@ -25,7 +25,7 @@ export class AppComponent {
 
   existInCart(item): boolean {
     const index = this.cart.findIndex(x => x._id === item._id);
-    return !(index > -1);
+    return (index > -1);
   }
 
 }
