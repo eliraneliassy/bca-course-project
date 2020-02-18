@@ -18,4 +18,14 @@ export class AppComponent {
     console.log(this.cart);
   }
 
+  removeFromCart(item: Item) {
+    const index = this.cart.findIndex(x => x._id === item._id);
+    this.cart.splice(index, 1);
+  }
+
+  existInCart(item): boolean {
+    const index = this.cart.findIndex(x => x._id === item._id);
+    return !(index > -1);
+  }
+
 }
