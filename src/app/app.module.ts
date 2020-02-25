@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { HeaderComponent } from './header/header.component';
+import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,

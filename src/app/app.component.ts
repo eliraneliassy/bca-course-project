@@ -8,37 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  items: Item[] = [];
-
-  cart: Item[] = [];
-
-  constructor(
-    private feedService: FeedService,
-    private cartService: CartService
-  ) {
-  }
-
-  ngOnInit(): void {
-    this.feedService.getFeed().subscribe(
-      (items: Item[]) => {
-        this.items = items;
-      });
-
-    this.cart = this.cartService.cart;
-  }
-
-  addToCart(item: Item): void {
-    this.cartService.addToCart(item);
-  }
-
-  removeFromCart(item: Item) {
-    this.cartService.removeFromCart(item);
-  }
-
-  existInCart(item): boolean {
-    return this.cartService.existInCart(item);
-  }
 
 }
