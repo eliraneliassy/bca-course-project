@@ -1,9 +1,9 @@
 import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from './item.interface';
-import { filter, map, delay } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,14 @@ export class FeedService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFeed(): Observable<Item[]> {
-    return this.httpClient.get<Item[]>(`${this.BASE_URL}/feed`);
+  getFeed(page?: number): Observable<Item[]> {
+    let params: HttpParams = new HttpParams();
+    if (page) {
+
+      params = params.append('page', page.toString());
+    }
+
+    return this.httpClient.get<Item[]>(`${this.BASE_URL}/feed`, { params });
   }
 
   getProductById(id: string): Observable<Item> {

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, AfterViewInit, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit, Input, Renderer2, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appChangeColor]'
@@ -6,6 +6,19 @@ import { Directive, ElementRef, AfterViewInit, Input, Renderer2 } from '@angular
 export class ChangeColorDirective implements AfterViewInit {
 
   @Input() appChangeColor = 'red';
+
+  @HostListener('mouseenter', [])
+  onMouseEnter() {
+    this.renderer
+      .setStyle(this.element.nativeElement, 'background-color', this.appChangeColor);
+  }
+
+  @HostListener('mouseleave', [])
+  onMouseLeave() {
+    this.renderer
+      .setStyle(this.element.nativeElement, 'background-color', '#fff');
+  }
+
 
 
   constructor(
@@ -16,8 +29,7 @@ export class ChangeColorDirective implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // this.element.nativeElement.style.backgroundColor = this.appChangeColor;
-    this.renderer
-      .setStyle(this.element.nativeElement, 'background-color', this.appChangeColor);
+
   }
 
 }
