@@ -12,6 +12,7 @@ export class CartService {
 
   addToCart(item: Item): void {
     this.cart.push(item);
+    console.log(this.cart);
   }
 
   removeFromCart(item: Item) {
