@@ -11,6 +11,7 @@ import { FeedComponent } from './feed/feed.component';
 import { ProductComponent } from './product/product.component';
 import { ChangeColorDirective } from './change-color.directive';
 import { InfiteScrollDirective } from './infite-scroll.directive';
+import { DiscountPipe } from './discount.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InfiteScrollDirective } from './infite-scroll.directive';
     FeedComponent,
     ProductComponent,
     ChangeColorDirective,
-    InfiteScrollDirective
+    InfiteScrollDirective,
+    DiscountPipe
   ],
   imports: [
     BrowserModule,
