@@ -1,3 +1,4 @@
+import { CartService } from './cart.service';
 import { FeedService } from './feed.service';
 import { Item } from './item.interface';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,10 @@ export class AppComponent implements OnInit {
 
   cart: Item[] = [];
 
-  constructor(private feedService: FeedService) {
+  constructor(
+    private feedService: FeedService,
+    private cartService: CartService
+  ) {
   }
 
   ngOnInit(): void {
@@ -21,21 +25,20 @@ export class AppComponent implements OnInit {
       (items: Item[]) => {
         this.items = items;
       });
+
+    this.cart = this.cartService.cart;
   }
 
   addToCart(item: Item): void {
-    this.cart.push(item);
-    console.log(this.cart);
+    this.cartService.addToCart(item);
   }
 
   removeFromCart(item: Item) {
-    const index = this.cart.findIndex(x => x._id === item._id);
-    this.cart.splice(index, 1);
+    this.cartService.removeFromCart(item);
   }
 
   existInCart(item): boolean {
-    const index = this.cart.findIndex(x => x._id === item._id);
-    return (index > -1);
+    return this.cartService.existInCart(item);
   }
 
 }
