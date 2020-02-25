@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { HeaderComponent } from './header/header.component';
 import { FeedComponent } from './feed/feed.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FeedComponent } from './feed/feed.component';
     ItemComponent,
     CartComponent,
     HeaderComponent,
-    FeedComponent
+    FeedComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

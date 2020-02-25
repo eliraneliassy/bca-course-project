@@ -1,3 +1,4 @@
+import { ProductComponent } from './product/product.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,8 +7,10 @@ import { FeedComponent } from './feed/feed.component';
 
 
 const routes: Routes = [
-  { path: '', component: FeedComponent },
-  { path: 'cart', component: CartComponent }
+  { path: '', redirectTo: 'feed', pathMatch: 'full' },
+  { path: 'feed', component: FeedComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'product/:id', component: ProductComponent }
 ];
 
 @NgModule({
