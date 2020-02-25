@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FeedComponent } from './feed/feed.component';
 import { ProductComponent } from './product/product.component';
 import { ChangeColorDirective } from './change-color.directive';
+import { InfiteScrollDirective } from './infite-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChangeColorDirective } from './change-color.directive';
     HeaderComponent,
     FeedComponent,
     ProductComponent,
-    ChangeColorDirective
+    ChangeColorDirective,
+    InfiteScrollDirective
   ],
   imports: [
     BrowserModule,

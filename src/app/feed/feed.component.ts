@@ -14,6 +14,8 @@ export class FeedComponent implements OnInit {
 
   cart: Item[] = [];
 
+  page = 0;
+
   constructor(
     private feedService: FeedService,
     private cartService: CartService
@@ -21,7 +23,7 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.feedService.getFeed().subscribe(
+    this.feedService.getFeed(this.page).subscribe(
       (items: Item[]) => {
         this.items = items;
       });
@@ -39,6 +41,14 @@ export class FeedComponent implements OnInit {
 
   existInCart(item): boolean {
     return this.cartService.existInCart(item);
+  }
+
+  loadMore() {
+    this.page++;
+    this.feedService.getFeed(this.page).subscribe(
+      (items: Item[]) => {
+        this.items = [...this.items, ...items];
+      });
   }
 
 
