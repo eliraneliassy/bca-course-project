@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../item.interface';
-import { Router } from '@angular/router';
+import { Router, Event } from '@angular/router';
 
 
 @Component({
@@ -21,11 +21,13 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addToCartClicked(item: Item) {
+  addToCartClicked(item: Item, event) {
+    event.stopPropagation();
     this.addToCart.emit(item);
   }
 
-  removeFromCartClicked(item: Item) {
+  removeFromCartClicked(item: Item, event) {
+    event.stopPropagation();
     this.removeFromCart.emit(item);
   }
 
