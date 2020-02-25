@@ -2,5 +2,6 @@
     <app-item *ngFor="let item of items" [item]="item"
     (addToCart)="addToCart($event)" 
     (removeFromCart)="removeFromCart($event)"
-    [existInCart]="existInCart(item)"></app-item>
+    [existInCart]="existInCart(item)"
+    appChangeColor="green" ></app-item>
   </div>
