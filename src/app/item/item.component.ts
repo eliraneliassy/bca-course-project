@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../item.interface';
-import { Router, Event } from '@angular/router';
+import { Router, Event, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class ItemComponent implements OnInit {
   @Output() addToCart: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() removeFromCart: EventEmitter<Item> = new EventEmitter<Item>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +32,10 @@ export class ItemComponent implements OnInit {
   }
 
   goToProduct() {
-    this.router.navigateByUrl(`/product/${this.item._id}`);
+    // this.router.navigateByUrl(`/product/${this.item._id}`);
+    this.router.navigate(['product', this.item._id],
+      { queryParams: { min_price: 400 }
+     });
   }
 
 }

@@ -1,3 +1,4 @@
+import { ProductResolveService } from './product-resolve.service';
 import { ProductComponent } from './product/product.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'feed', pathMatch: 'full' },
   { path: 'feed', component: FeedComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'product/:id', component: ProductComponent }
+  {
+    path: 'product/:id',
+    component: ProductComponent,
+    resolve: { product: ProductResolveService }
+  }
 ];
 
 @NgModule({

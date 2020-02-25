@@ -1,7 +1,7 @@
 import { FeedService } from './../feed.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from '../item.interface';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Data } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { Observable, timer, Subscription } from 'rxjs';
 
@@ -23,11 +23,17 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.sub = this.route.params.subscribe((params: Params) => {
-      this.feedService.getProductById(params.id).subscribe(
-        (item: Item) => this.item = item
-      );
+    // this.sub = this.route.params.subscribe((params: Params) => {
+    //   this.feedService.getProductById(params.id).subscribe(
+    //     (item: Item) => this.item = item
+    //   );
+    // });
+
+    this.route.data.subscribe((data: Data) => {
+      this.item = data.product;
     });
+
+    this.route.queryParams.subscribe(console.log);
 
 
   }

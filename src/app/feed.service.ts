@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from './item.interface';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,7 @@ export class FeedService {
 
   getProductById(id: string): Observable<Item> {
     return this.getFeed().pipe(
+      delay(3000),
       map((items: Item[]) => {
         return items.find((item: Item) => item._id === id);
       })
