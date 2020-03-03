@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProductResolveService } from './product-resolve.service';
 import { ProductComponent } from './product/product.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'product/:id',
     component: ProductComponent,

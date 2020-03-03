@@ -14,7 +14,8 @@ import { InfiteScrollDirective } from './infite-scroll.directive';
 import { DiscountPipe } from './discount.pipe';
 import { LoginComponent } from './login/login.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,15 @@ import { FormsModule } from '@angular/forms';
     ChangeColorDirective,
     InfiteScrollDirective,
     DiscountPipe,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
