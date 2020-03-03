@@ -18,8 +18,6 @@ import { AuthRoutingModule } from './auth-routing.module';
     ReactiveFormsModule,
     FormsModule
   ],
-  exports: [
-    // FormsModule
-  ]
+
 })
 export class AuthModule { }

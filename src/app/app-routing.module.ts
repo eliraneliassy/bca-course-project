@@ -1,11 +1,7 @@
 
-import { ProductResolveService } from './product-resolve.service';
-
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
-import { FeedComponent } from './feed/feed.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+
 
 
 const routes: Routes = [
@@ -26,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
