@@ -1,3 +1,4 @@
+import { AuthService, User } from './../auth.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.getUser().subscribe((user: User) => this.user = user);
+  }
+  logout() {
+    this.authService.logout();
   }
 
 }
