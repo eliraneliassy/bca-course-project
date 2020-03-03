@@ -1,7 +1,6 @@
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+
 import { ProductResolveService } from './product-resolve.service';
-import { ProductComponent } from './product/product.component';
+
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,16 +9,20 @@ import { FeedComponent } from './feed/feed.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'feed', component: FeedComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+
   {
-    path: 'product/:id',
-    component: ProductComponent,
-    resolve: { product: ProductResolveService }
-  }
+    path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'feed',
+    loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
+  },
+
 ];
 
 @NgModule({

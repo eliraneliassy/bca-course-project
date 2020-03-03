@@ -1,9 +1,10 @@
-import { FeedService } from './../feed.service';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Item } from '../item.interface';
-import { ActivatedRoute, Params, Data } from '@angular/router';
-import { tap } from 'rxjs/operators';
-import { Observable, timer, Subscription } from 'rxjs';
+
+import { ActivatedRoute, Data } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Item } from 'src/app/item.interface';
+import { FeedService } from 'src/app/feed.service';
 
 @Component({
   selector: 'app-product',
