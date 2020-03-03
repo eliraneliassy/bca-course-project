@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { ProductResolveService } from './product-resolve.service';
 import { ProductComponent } from './product/product.component';
 import { AppComponent } from './app.component';
@@ -8,9 +9,10 @@ import { FeedComponent } from './feed/feed.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'feed', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'feed', component: FeedComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'product/:id',
     component: ProductComponent,

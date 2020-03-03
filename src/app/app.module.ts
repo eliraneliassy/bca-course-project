@@ -12,6 +12,9 @@ import { ProductComponent } from './product/product.component';
 import { ChangeColorDirective } from './change-color.directive';
 import { InfiteScrollDirective } from './infite-scroll.directive';
 import { DiscountPipe } from './discount.pipe';
+import { LoginComponent } from './login/login.component';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,14 @@ import { DiscountPipe } from './discount.pipe';
     ProductComponent,
     ChangeColorDirective,
     InfiteScrollDirective,
-    DiscountPipe
+    DiscountPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
