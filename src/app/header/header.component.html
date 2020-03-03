@@ -3,6 +3,7 @@
         <a routerLink="/">Feed</a>
         <a routerLink="/cart">Cart</a>
     </div>
+    <input (input)="search($event.target.value)">
     <div>
         <span *ngIf="user; else elseBlock">Hello, {{user?.email}}
             <span (click)="logout()">Logout</span>
